@@ -165,7 +165,7 @@ function SearchPage() {
         <article className="mt-6 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="font-display text-3xl font-bold text-primary">{result.name}</h2>
-            <div className="flex gap-2 print:hidden">
+            <div className="grid w-full grid-cols-2 gap-2 print:hidden">
               <button onClick={readAll} className="btn-soft">
                 {reading ? <Square className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
                 {reading ? t.stop : t.readAloud}

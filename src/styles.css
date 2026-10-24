@@ -145,6 +145,7 @@
   padding: 0 1.1rem;
   font-weight: 700;
   font-size: 1.05rem;
+  white-space: nowrap;
   transition: transform 0.1s, filter 0.15s;
   &:active { transform: scale(0.98); }
   &:disabled { opacity: 0.6; }
@@ -230,6 +231,8 @@
   padding: 0.6rem 0.25rem 0.8rem;
   font-size: 0.85rem;
   font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
   color: var(--muted-foreground);
 }
 @utility nav-item-active {
