@@ -39,7 +39,7 @@ export type ConditionResult = {
 export const lookupCondition = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => Input.parse(d))
   .handler(async ({ data }): Promise<{ ok: true; result: ConditionResult } | { ok: false; error: string }> => {
-    const key = process.env.GROQ_API_KEY;
+    const key = process.env["GROQ_API_KEY"];
     if (!key) return { ok: false, error: "config" };
 
     const user = `Language: ${data.language === "ar" ? "Arabic" : "English"}

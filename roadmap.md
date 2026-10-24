@@ -1,5 +1,6 @@
 # CareCompanion roadmap
 
+- [x] Subtitle "A Project By Hriday.B" under app title
 - [x] Groq connection (secure key, server-side, strict safety prompt)
 - [x] Condition search: explanation, symptoms, warning signs, medication classes, lifestyle, doctor questions
 - [x] Always-visible disclaimer, emergency banner, interaction warnings

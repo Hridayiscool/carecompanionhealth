@@ -4,7 +4,7 @@ import { dict, type Lang } from "./i18n";
 type Ctx = {
   lang: Lang;
   setLang: (l: Lang) => void;
-  t: (typeof dict)["en"];
+  t: { [K in keyof (typeof dict)["en"]]: string };
   meds: string[];
   setMeds: (m: string[]) => void;
 };
