@@ -18,7 +18,10 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mx-auto flex max-w-2xl items-center justify-between gap-3 px-4 py-3">
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="" width={44} height={44} className="h-11 w-11" />
-            <span className="font-display text-xl font-bold text-primary sm:text-2xl">{t.appName}</span>
+            <span className="flex min-w-0 flex-col leading-tight">
+              <span className="font-display text-xl font-bold text-primary sm:text-2xl">{t.appName}</span>
+              <span className="text-sm font-semibold text-muted-foreground">A Project By Hriday.B</span>
+            </span>
           </Link>
           <button
             onClick={() => setLang(lang === "en" ? "ar" : "en")}
