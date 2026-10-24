@@ -1,3 +1,4 @@
+import type React from "react";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { dict, type Lang } from "./i18n";
 
@@ -9,7 +10,11 @@ type Ctx = {
   setMeds: (m: string[]) => void;
 };
 
-const AppCtx = createContext<Ctx | null>(null);
+// Keep one context instance across hot reloads so provider and consumers always match.
+const g = globalThis as unknown as { __ccAppCtx?: React.Context<Ctx | null> };
+const AppCtx = (g.__ccAppCtx ??= createContext<Ctx | null>(null));
+
+const fallback: Ctx = { lang: "en", setLang: () => {}, t: dict.en, meds: [], setMeds: () => {} };
 
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
@@ -43,6 +48,5 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
 
 export function useApp() {
   const c = useContext(AppCtx);
-  if (!c) throw new Error("useApp outside provider");
-  return c;
+  return c ?? fallback;
 }
