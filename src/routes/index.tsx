@@ -166,11 +166,11 @@ function SearchPage() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="font-display text-3xl font-bold text-primary">{result.name}</h2>
             <div className="grid w-full grid-cols-2 gap-2 print:hidden">
-              <button onClick={readAll} className="btn-soft">
+              <button onClick={readAll} className="btn-soft whitespace-normal px-2">
                 {reading ? <Square className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
                 {reading ? t.stop : t.readAloud}
               </button>
-              <button onClick={() => window.print()} className="btn-soft">
+              <button onClick={() => window.print()} className="btn-soft whitespace-normal px-2 leading-tight">
                 <Printer className="h-6 w-6" /> {t.share}
               </button>
             </div>

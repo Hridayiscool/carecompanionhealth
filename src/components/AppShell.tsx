@@ -17,9 +17,9 @@ export function AppShell({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-20 border-b border-border bg-card/95 backdrop-blur print:hidden">
         <div className="mx-auto flex max-w-2xl items-center justify-between gap-3 px-4 py-3">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="" width={44} height={44} className="h-11 w-11" />
+            <img src={logo} alt="" width={40} height={40} className="h-10 w-10 shrink-0" />
             <span className="flex min-w-0 flex-col leading-tight">
-              <span className="font-display text-xl font-bold text-primary sm:text-2xl">{t.appName}</span>
+              <span className="font-display text-lg font-bold text-primary sm:text-2xl">{t.appName}</span>
               <span className="text-sm font-semibold text-muted-foreground">A Project By Hriday.B</span>
             </span>
           </Link>
