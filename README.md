@@ -10,11 +10,7 @@ I need the chat completions endpoint: POST /chat/completions
 
 Docs: https://console.groq.com/docs/api-reference
 
-This project was built with [Lovable](https://lovable.dev).
-
 **Live app**: https://carecompanionhealth.lovable.app
-
-## Build with Lovable
 
 Continue developing this project in the [Lovable editor](https://lovable.dev/projects/0cc71aa6-7d31-4da9-90ea-3d57c196322e).
 
