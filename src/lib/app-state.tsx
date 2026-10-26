@@ -2,19 +2,26 @@ import type React from "react";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { dict, type Lang } from "./i18n";
 
+export type FamilyContact = { name: string; phone: string };
+
 type Ctx = {
   lang: Lang;
   setLang: (l: Lang) => void;
   t: { [K in keyof (typeof dict)["en"]]: string };
   meds: string[];
   setMeds: (m: string[]) => void;
+  contacts: FamilyContact[];
+  setContacts: (c: FamilyContact[]) => void;
 };
 
 // Keep one context instance across hot reloads so provider and consumers always match.
 const g = globalThis as unknown as { __ccAppCtx?: React.Context<Ctx | null> };
 const AppCtx = (g.__ccAppCtx ??= createContext<Ctx | null>(null));
 
-const fallback: Ctx = { lang: "en", setLang: () => {}, t: dict.en, meds: [], setMeds: () => {} };
+const fallback: Ctx = {
+  lang: "en", setLang: () => {}, t: dict.en, meds: [], setMeds: () => {},
+  contacts: [], setContacts: () => {},
+};
 
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
