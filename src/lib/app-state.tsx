@@ -26,12 +26,17 @@ const fallback: Ctx = {
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
   const [meds, setMeds] = useState<string[]>([]);
+  const [contacts, setContacts] = useState<FamilyContact[]>([]);
 
   useEffect(() => {
     const l = localStorage.getItem("cc-lang");
     if (l === "ar" || l === "en") setLang(l);
     try {
       setMeds(JSON.parse(localStorage.getItem("cc-meds") ?? "[]"));
+    } catch {}
+    try {
+      const c = JSON.parse(localStorage.getItem("cc-contacts") ?? "[]");
+      if (Array.isArray(c)) setContacts(c.filter((x) => x && x.name && x.phone));
     } catch {}
   }, []);
 
@@ -46,8 +51,15 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("cc-meds", JSON.stringify(m));
   };
 
+  const saveContacts = (c: FamilyContact[]) => {
+    setContacts(c);
+    localStorage.setItem("cc-contacts", JSON.stringify(c));
+  };
+
   return (
-    <AppCtx.Provider value={{ lang, setLang, t: dict[lang], meds, setMeds: saveMeds }}>
+    <AppCtx.Provider
+      value={{ lang, setLang, t: dict[lang], meds, setMeds: saveMeds, contacts, setContacts: saveContacts }}
+    >
       {children}
     </AppCtx.Provider>
   );
