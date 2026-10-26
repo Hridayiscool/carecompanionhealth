@@ -12,8 +12,6 @@ Docs: https://console.groq.com/docs/api-reference
 
 **Live app**: https://carecompanionhealth.lovable.app
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/0cc71aa6-7d31-4da9-90ea-3d57c196322e).
-
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
 - **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
