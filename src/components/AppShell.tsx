@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Search, Pill, Users, Languages, ShieldAlert } from "lucide-react";
+import { Search, Pill, Users, Languages, ShieldAlert, Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
 import logo from "@/assets/logo.png";
 import { useApp } from "@/lib/app-state";
@@ -8,6 +8,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const { t, lang, setLang } = useApp();
   const nav = [
     { to: "/", label: t.navSearch, icon: Search },
+    { to: "/ask", label: t.navAsk, icon: Sparkles },
     { to: "/medications", label: t.navMeds, icon: Pill },
     { to: "/family", label: t.navFamily, icon: Users },
   ] as const;
@@ -41,7 +42,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <main className="mx-auto max-w-2xl px-4 py-6">{children}</main>
 
       <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-card print:hidden">
-        <div className="mx-auto grid max-w-2xl grid-cols-3">
+        <div className="mx-auto grid max-w-2xl grid-cols-4">
           {nav.map(({ to, label, icon: Icon }) => (
             <Link
               key={to}
