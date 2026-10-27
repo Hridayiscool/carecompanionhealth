@@ -7,5 +7,6 @@
 - [x] My Medications (saved on this device), voice input, read aloud, English/Arabic RTL, print/share summary
 - [ ] Accounts + cloud storage (Lovable Cloud) — needs user go-ahead
 - [x] Family emergency contacts: save family phone numbers, one-press alert call button (saved on this device)
+- [x] Ask AI page: medication question (plain answer, doctor questions, urgent-care flag) + explain a medical paper (AI Gateway)
 - [ ] Family mode: link elder profile, see saved conditions — depends on accounts
 - [ ] Daily medication reminders with "I took it" button — depends on accounts
